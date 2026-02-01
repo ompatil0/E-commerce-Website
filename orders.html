@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orders - Admin Dashboard | Krushna super shopee</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+    body {
+      background: #f8f9fa;
+      font-family: "Poppins", sans-serif;
+    }
+    .container {
+      margin-top: 40px;
+    }
+    .order-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+      padding: 20px;
+    }
+    .order-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
+    }
+    .order-items img {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-right: 10px;
+    }
+    .order-item {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #eee;
+      padding: 10px 0;
+    }
+    .total {
+      text-align: right;
+      font-weight: bold;
+      color: #198754;
+      margin-top: 10px;
+    }
+    .no-orders {
+      text-align: center;
+      color: #666;
+      margin-top: 100px;
+    }
+    .back-btn {
+      background: #198754;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+    .back-btn:hover {
+      background: #157347;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2><i class="fa-solid fa-truck"></i> Customer Orders</h2>
+      <a href="admin-dashboard.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back to Dashboard</a>
+    </div>
+
+    <div id="ordersContainer"></div>
+  </div>
+
+  <script>
+    const ordersContainer = document.getElementById("ordersContainer");
+
+    function loadOrders() {
+      const orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+      if (orders.length === 0) {
+        ordersContainer.innerHTML = `<h4 class="no-orders">No orders have been placed yet 🚫</h4>`;
+        return;
+      }
+
+      ordersContainer.innerHTML = "";
+      orders.forEach((order, i) => {
+        let itemsHTML = "";
+        order.items.forEach(item => {
+          itemsHTML += `
+            <div class="order-item">
+              <img src="${item.image}" alt="${item.name}">
+              <div>
+                <h6>${item.name}</h6>
+                <p class="text-muted mb-0">₹${item.price}</p>
+              </div>
+            </div>
+          `;
+        });
+
+        ordersContainer.innerHTML += `
+          <div class="order-card">
+            <div class="order-header">
+              <h5>Order #${i + 1}</h5>
+              <small class="text-muted">${order.date}</small>
+            </div>
+            <div class="order-items">
+              ${itemsHTML}
+            </div>
+            <div class="total">Total: ₹${order.total}</div>
+          </div>
+        `;
+      });
+    }
+
+    loadOrders();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-Commerce Website</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- ✅ your original header section unchanged -->
+  <section id="header">
+    <a href="index.html"><img src="Krushna super shopee new logo.jpeg" height="50px" width="170px" class="logo" alt=""></a>
+    <div>
+      <ul id="navbar">
+        <li><a class="active" href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html"><i class="fa-solid fa-user"></i></a></li>
+      </ul>
+    </div>
+    <div id="mobile">
+      <i id="bar" class="fas fa-outdent"></i>
+    </div>
+  </section>
+
+  <!-- ✅ Hero section unchanged -->
+  <section id="hero">
+    <h4>Trade-in-offer</h4>
+    <h2>Super value deals</h2>
+    <h1>Welcome to Shree Krushna <br>SuperMart!</h1>
+    <p>Save more with coupons & up to 60% off!</p>
+    <button style="width: 350px;"><a href="shop.html">Shop Now</a></button>
+  </section>
+
+  <!-- ✅ Featured Products (Dynamic Section Added) -->
+  <section id="Product1" class="section-p1">
+    <h2 style="font-size: 46px; line-height: 54px; color: #222;">Featured Products - Clothing</h2>
+    <p>Summer Collection New Modern Design</p>
+
+    <div id="dynamic-products" class="pro-container">
+      <!-- 🧩 Products added by admin will automatically appear here -->
+    </div>
+  </section>
+
+  <!-- ✅ rest of your sections unchanged -->
+  <section id="banner" class="section-m1">
+    <h4>Repair Service</h4>
+    <h2>Up to <span>60% off</span> - All t-Shirts & Accessories</h2>
+    <button style="width: 350px;" class="normal"><a href="blog.html">Explore more</a></button>
+  </section>
+
+  <!-- footer unchanged -->
+  <footer class="section-p1">
+    <div class="col">
+      <h4>Contact</h4>
+      <p><strong><i class="fa-solid fa-location-dot"></i>:</strong> Fetri ,<br> Katol Road, Nagpur 441501</p>
+      <p><Strong><i class="fa-solid fa-phone"></i>:</Strong> +91 8237500534</p>
+      <div class="follow">
+        <h4>Follow Us</h4>
+        <div class="icon">
+          <i class="fab fa-facebook-f"></i>
+          <i class="fab fa-twitter"></i>
+          <i class="fab fa-instagram"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
